@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Mas Nanang ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            text-align: center;
+            background-color: #000;
+            overflow-y: auto;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+        }
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            transform: rotate(45deg);
+            animation: floatHeart 6s infinite ease-in;
+        }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: pink;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: -10px;
+            top: 0;
+        }
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        .container {
+            margin-top: 50px;
+            animation: fadeIn 2s ease-in;
+            position: relative;
+            z-index: 1;
+            padding-bottom: 100px;
+        }
+        .slideshow-container {
+            position: relative;
+            width: 90%;
+            max-width: 320px;
+            margin: 0 auto;
+        }
+        .mySlides {
+            display: none;
+        }
+        .mySlides img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+            animation: pulse 4s infinite ease-in-out;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            color: #000;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            border-radius: 50%;
+            user-select: none;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .prev {
+            left: -50px;
+        }
+        .next {
+            right: -50px;
+        }
+        h1 {
+            color: #f0f0f0;
+            font-size: 2.8em;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.6);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        p {
+            font-size: 1.1em;
+            color: #d0d0d0;
+            animation: fadeInUp 2s ease forwards;
+        }
+        audio {
+            margin-top: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #a6c8ff, 0 0 20px #a6c8ff; }
+            to { text-shadow: 0 0 20px #ffffff, 0 0 30px #a6c8ff; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts" id="hearts"></div>
+
+    <div class="container">
+        <h1>🎉 Selamat Ulang Tahun, Mas Nanang! 🎉</h1>
+        <p>Semoga panjang umur, sehat selalu, rezeki lancar, selalu bahagia dan semoga yg di inginkan tahun ini tercapai semuanya.. paling penting jangan lupa sama bocilmu ini jangan cape sama adek ya mamassku sayangku cintakuuu 💕</p>
+        <p>Maaf ya kalo jelek masih pemulaaa hehehehehehew💕</p>
+
+        <div class="slideshow-container">
+            <div class="mySlides"><img src="foto1.jpeg" alt="Foto 1"></div>
+            <div class="mySlides"><img src="foto2.jpeg" alt="Foto 2"></div>
+            <div class="mySlides"><img src="foto3.jpeg" alt="Foto 3"></div>
+            <div class="mySlides"><img src="foto4.jpeg" alt="Foto 4"></div>
+            <div class="mySlides"><img src="foto5.jpeg" alt="Foto 5"></div>
+            <div class="mySlides"><img src="foto6.jpeg" alt="Foto 6"></div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <p>🎶 Lagu: Anugerah Terindah 🎶</p>
+        <audio controls>
+            <source src="anugerah_terindah.mp3" type="audio/mpeg">
+            Browsermu tidak mendukung audio HTML5.
+        </audio>
+    </div>
+
+    <script>
+        // Hati-hati cinta
+        const heartsContainer = document.getElementById("hearts");
+        for (let i = 0; i < 30; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.bottom = "-40px";
+            heart.style.animationDelay = Math.random() * 5 + "s";
+            heartsContainer.appendChild(heart);
+        }
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+    </script>
+</body>
+</html>
